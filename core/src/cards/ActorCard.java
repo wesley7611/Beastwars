@@ -63,6 +63,7 @@ public abstract class ActorCard extends Card{
 		//healthDisplay=new ArrayList<HPCounter>(maxHP);
 		//text.setPosition(0, 0);
 		
+		
 		afflictedCount = 0;
 		stunnedCount = 0;
 		crippledCount =0;
