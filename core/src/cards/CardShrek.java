@@ -16,7 +16,7 @@ public class CardShrek extends ActorCard{
 		currentHP=getMaxHP();
 		name = "Pepe";
 		type = 1;
-		attackCost=3;
+		standardAttackCost=2;
 		upkeep = 3;
 		front = new Texture(Gdx.files.internal("Level 4/Shrek.jpg"));
 		//sprite = new Sprite(back);

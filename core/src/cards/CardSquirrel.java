@@ -16,7 +16,7 @@ public class CardSquirrel extends ActorCard{
 		currentHP=getMaxHP();
 		name = "Bear";
 		type = 1;
-		attackCost=2;
+		standardAttackCost=2;
 		upkeep = 1;
 		front = new Texture(Gdx.files.internal("Level 1/Squirrel.jpg"));
 		//sprite = new Sprite(back);

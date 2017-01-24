@@ -26,16 +26,29 @@ public abstract class ActorCard extends Card{
 	boolean isDefeated;
 	
 	boolean isAfflicted;
+	int afflictedCount;
+	
 	boolean isStunned;
+	int stunnedCount;
+	
 	boolean isTaunting;
+	
 	boolean isCrippled;
+	int crippledCount;
+	
 	boolean isConfused;
-	boolean isSTRup;
-	boolean isDEFup;
+	int confusedCount;
+	
+	boolean isSTRUp;
+	int STRUpCount;
+	
+	boolean isDEFUp;
+	int DEFUpCount;
 	
 	int value;
 	
-	int attackCost;
+	int standardAttackCost;
+	int currentAttackCost;
 	
 	public ActorCard(Player owner, Stage stage){
 		super(owner);
@@ -44,10 +57,18 @@ public abstract class ActorCard extends Card{
 		currentHP = getMaxHP();
 		isDefeated = false;
 		type=1;
-		attackCost = 0;
+		standardAttackCost = 0;
+		currentAttackCost = 0;
 		text = new Label("TEST", new LabelStyle(new BitmapFont(), Color.BLACK));
 		//healthDisplay=new ArrayList<HPCounter>(maxHP);
-		text.setPosition(0, 0);
+		//text.setPosition(0, 0);
+		
+		afflictedCount = 0;
+		stunnedCount = 0;
+		crippledCount =0;
+		confusedCount = 0;
+		STRUpCount = 0;
+		DEFUpCount = 0;
 		
 		
 		/*
@@ -112,5 +133,26 @@ public abstract class ActorCard extends Card{
 	}
 	public int returnAttackCost(){
 		return attackCost;
+	}
+	public void statusCheck(){
+		if(isAfflicted==true){
+			//poison actions
+		}
+		if(isStunned==true){
+			//reduce stuncount
+		}
+		if(isCrippled==true){
+			
+		}
+		if(isConfused==true){
+			
+		}
+		if(isSTRUp==true){
+			
+		}
+		if(isDEFUp==true){
+			
+		}
+		
 	}
 }
