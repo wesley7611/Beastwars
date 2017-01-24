@@ -133,7 +133,7 @@ public abstract class ActorCard extends Card{
 		return upkeep;
 	}
 	public int returnAttackCost(){
-		return attackCost;
+		return currentAttackCost;
 	}
 	public void statusCheck(){
 		if(isAfflicted==true){

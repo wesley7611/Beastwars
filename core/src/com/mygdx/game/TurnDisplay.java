@@ -34,7 +34,7 @@ public class TurnDisplay extends Actor{
 	
 		
 		
-		addAction(Actions.sequence(Actions.moveTo((screenWidth-sprite.getWidth())/2,getY(), (float) 2), Actions.delay(1f), Actions.moveTo(screenWidth+sprite.getWidth(), getY(), 2), Actions.run(new Runnable() {
+		addAction(Actions.sequence(Actions.moveTo((Game.screenWidth-sprite.getWidth())/2,getY(), (float) 2), Actions.delay(1f), Actions.moveTo(Game.screenWidth+sprite.getWidth(), getY(), 2), Actions.run(new Runnable() {
 		    public void run () {
 		        completed = true;
 		    }

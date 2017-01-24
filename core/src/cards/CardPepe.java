@@ -23,7 +23,7 @@ public class CardPepe extends ActorCard{
 	}
 	public int attack(ActorCard target){
 		target.decreaseHP(70);
-		return attackCost;
+		return currentAttackCost;
 	}
 
 }
