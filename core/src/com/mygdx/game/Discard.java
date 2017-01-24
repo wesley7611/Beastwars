@@ -9,4 +9,5 @@
 package com.mygdx.game;
 public class Discard {
 	//to be done
+	//test
 }
