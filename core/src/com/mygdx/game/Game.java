@@ -21,6 +21,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class Game extends ApplicationAdapter {
+	
+	public boolean controlsLocked;
 
 	Player p1;
 	Player p2;
@@ -35,6 +37,7 @@ public class Game extends ApplicationAdapter {
 	int screenHeight = 720;
 	int screenWidth= 1280;
 	Actor textBox;
+	
 			
 	Stage stage;
 	
@@ -45,6 +48,7 @@ public class Game extends ApplicationAdapter {
 
 	@Override
 	public void create() {
+		controlsLocked=false;
 		Projection = new Matrix4().setToOrtho2D(0, 0, (float) Gdx.graphics.getWidth(), (float) Gdx.graphics.getHeight());
 		//textDisplay=true;
 		//textBox=new Actor();

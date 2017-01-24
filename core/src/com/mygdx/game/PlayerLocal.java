@@ -134,6 +134,7 @@ SelectionMarker marker;
 		}
 		return false;
 	}
+	
 	private void clearSelection(){
 		selectedActor=null;
 		selectedItem=null;
