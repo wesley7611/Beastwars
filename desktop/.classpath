@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-  <classpathentry kind="src" path="src"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry exported="true" kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer"/>
-  <classpathentry kind="output" path="bin"/>
-  <classpathentry kind="src" path="assets"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer"/>
+	<classpathentry including="Item Cards/|Level 1/|Level 2/|Level 3/|Level 4/|Oturn.png|PTurn.png|badlogic.jpg|board.png|card.jpg|cardBear.jpg|cardDragon.jpg|cardLion.jpg|cardPepe.jpg|hp.png|orb.png|selected.png" kind="src" path="assets"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
