@@ -34,8 +34,8 @@ public class Game extends ApplicationAdapter {
 	SpriteBatch batch;
 	BitmapFont font;
 	//SpriteBatch HP;
-	int screenHeight = 720;
-	int screenWidth= 1280;
+	public int screenHeight = 720;
+	public int screenWidth= 1280;
 	Actor textBox;
 	
 			
