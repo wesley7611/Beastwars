@@ -138,22 +138,29 @@ public abstract class ActorCard extends Card{
 	public void statusCheck(){
 		if(isAfflicted==true){
 			//poison actions
+			
+			reduceTimer(afflictedCount, isAfflicted);
 		}
 		if(isStunned==true){
 			//reduce stuncount
+			reduceTimer(stunnedCount, isStunned);
 		}
 		if(isCrippled==true){
-			
+			reduceTimer(crippledCount, isCrippled);
 		}
 		if(isConfused==true){
-			
+			reduceTimer(confusedCount, isConfused);
 		}
 		if(isSTRUp==true){
-			
+			reduceTimer(STRUpCount, isSTRUp);
 		}
 		if(isDEFUp==true){
-			
+			reduceTimer(DEFUpCount, isDEFUp);
 		}
 		
+	}
+	private void reduceTimer(int timer, boolean status){
+		timer --;
+		if(timer<=0)status=false;
 	}
 }
