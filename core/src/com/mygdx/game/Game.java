@@ -25,6 +25,7 @@ public class Game extends ApplicationAdapter {
 	Player p1;
 	Player p2;
 
+	public static boolean inputEnabled;
 	boolean cardDraw;
 	boolean turnOver;
 	boolean textDisplay;
@@ -45,6 +46,7 @@ public class Game extends ApplicationAdapter {
 
 	@Override
 	public void create() {
+		inputEnabled = true;
 		Projection = new Matrix4().setToOrtho2D(0, 0, (float) Gdx.graphics.getWidth(), (float) Gdx.graphics.getHeight());
 		//textDisplay=true;
 		//textBox=new Actor();

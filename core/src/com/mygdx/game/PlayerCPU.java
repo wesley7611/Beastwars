@@ -90,6 +90,7 @@ public class PlayerCPU extends Player {
 				// field.returnCard(x).attack(enemy.field.returnCard(y));
 				attackCard(field.returnCard(x), enemy.field.returnCard(y));
 				replenishAP();
+				Game.inputEnabled=true;
 				return true;
 			}
 		}
