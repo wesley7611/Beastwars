@@ -13,14 +13,15 @@ import com.badlogic.gdx.scenes.scene2d.actions.RunnableAction;
 public class TurnDisplay extends Actor{
 
 	Sprite sprite;
-	Texture p1;
-	Texture p2;
+	Texture texture;
 	boolean completed;
 	
-	public TurnDisplay() {
-		p1 = new Texture(Gdx.files.internal("PTurn.png"));
-		p2 = new Texture(Gdx.files.internal("Oturn.png"));
-		sprite = new Sprite(p1);
+	
+	public TurnDisplay(Texture texture2) {
+		this.texture = texture2;
+				//new Texture(Gdx.files.internal("PTurn.png"));
+		//p2 = new Texture(Gdx.files.internal("Oturn.png"));
+		sprite = new Sprite(texture2);
 		setPosition(-600,400);
 		positionChanged();
 		setVisible(true);
@@ -34,21 +35,28 @@ public class TurnDisplay extends Actor{
 	
 		
 		
-		addAction(Actions.sequence(Actions.moveTo((Game.screenWidth-sprite.getWidth())/2,getY(), (float) 2), Actions.delay(1f), Actions.moveTo(Game.screenWidth+sprite.getWidth(), getY(), 2), Actions.run(new Runnable() {
+		addAction(Actions.sequence(Actions.run(new Runnable() {
+		    public void run () {
+		        Game.inputEnabled=false;
+		    }
+		}), Actions.moveTo((Game.screenWidth-sprite.getWidth())/2,getY(), (float) 2), Actions.delay(1f), Actions.moveTo(Game.screenWidth+sprite.getWidth(), getY(), 2), Actions.run(new Runnable() {
 		    public void run () {
 		        completed = true;
+		        Game.inputEnabled=true;
 		    }
 		}) ));
-
+	
+		
 		return completed;
 		
 	}
+	/*
 	public void player1Texture(){
 		sprite.setTexture(p1);
 	}
 	public void player2Texture(){
 		sprite.setTexture(p2);
-	}
+	}*/
 	@Override
 	public void positionChanged() {
 		sprite.setPosition(getX(), getY());

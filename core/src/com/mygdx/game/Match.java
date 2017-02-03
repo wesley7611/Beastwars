@@ -51,7 +51,7 @@ public class Match {
 
 	public Match(SpriteBatch batch, Stage stage) {
 
-		tDisplay = new TurnDisplay();
+		//tDisplay = new TurnDisplay();
 
 		p1 = new PlayerLocal("Player 1", stage);
 		p2 = new PlayerCPU("CPU");
@@ -183,7 +183,8 @@ public class Match {
 		p1.initialisePlayer(stage);
 		p2.initialisePlayer(stage);
 
-		stage.addActor(tDisplay);
+		//stage.addActor(tDisplay);
+		
 		// end = false;
 
 	}
@@ -194,12 +195,12 @@ public class Match {
 		stage.draw();
 
 		if (cardDraw == true && turnCount % 2 == 0) {
-			// end = true;
-			tDisplay.player1Texture();
-			// if(==true){
-			tDisplay.scroll();
+			
+			//tDisplay.player1Texture();
+			
+			//tDisplay.scroll();
 			cardDraw = p1.drawFromDeck();
-			// }
+			
 
 		}
 
@@ -207,10 +208,13 @@ public class Match {
 			turnOver = p1.takeTurn(p2);
 		}
 		// if 2
+		
+		/* TURN START - RESPONSIBILITY REASSIGNED TO CPUPlayer
 		if (cardDraw == true && turnCount % 2 == 1) {
-			tDisplay.player2Texture();
+			//tDisplay.player2Texture();
 			cardDraw = p2.drawFromDeck();
 		}
+		*/
 
 		if (turnCount % 2 == 1) {
 			turnOver = p2.takeTurn(p1);

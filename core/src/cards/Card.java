@@ -29,7 +29,7 @@ public class Card extends Actor{
 	int currentHP;
 	boolean pressed;
 	boolean hover;
-
+	InputListener listener;
 	
     public Card(Player owner){
     	height = 135;
@@ -47,7 +47,11 @@ public class Card extends Actor{
         setBounds(sprite.getX(),sprite.getY(),width,height);
         setTouchable(Touchable.enabled);
         
-        addListener(new InputListener(){/*
+        
+        
+        //addListener(
+        		
+        listener = new InputListener(){/*
         	public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor)
         	{
         		hover = true;
@@ -72,11 +76,13 @@ public class Card extends Actor{
         	}
         	
         	
-        });
+        };
+        
+        addListener(listener);
+        
             	
            //@Override
 			
-        ;
     }
     
     public boolean isPressed(){

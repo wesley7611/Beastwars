@@ -37,7 +37,7 @@ public class Game extends ApplicationAdapter {
 	public static int screenWidth= 1280;
 	Actor textBox;
 			
-	Stage stage;
+	public static Stage stage;
 	
 	Match match;
 

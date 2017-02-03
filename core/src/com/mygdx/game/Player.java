@@ -58,6 +58,7 @@ public abstract class Player {
 	public boolean drawFromDeck() { // draw card from deck, if deck isnt empty
 		Card draw = deck.drawCard();
 		if (draw != null) {
+			draw.toFront();
 			draw.flipFront();
 			hand.addCard(draw);
 
