@@ -21,6 +21,8 @@ public class PlayerLocal extends Player {
 	int selectedItemInt;
 	LargeDisplay large;
 	SelectionMarker marker;
+	
+	boolean firstAction;
 
 	public PlayerLocal(String name, Stage stage) {
 		super(name);
@@ -35,6 +37,9 @@ public class PlayerLocal extends Player {
 
 		stage.addActor(large);
 		stage.addActor(marker);
+		
+		firstAction = true;
+		
 
 		// TODO Auto-generated constructor stub
 	}
@@ -44,6 +49,16 @@ public class PlayerLocal extends Player {
 	 * their turn
 	 */
 	public boolean takeTurn(Player enemy) {
+		/*
+		 *RUN ONCE - DRAW CARD AND TURN DISPLAY 
+		 * 
+		 */
+		if(firstAction==true){
+			//turn display
+			//draw card
+			//enable input
+		}
+		
 		if (Game.inputEnabled == true) {
 			// Checks for input on card in hand
 			for (int i = 0; i < hand.handSize(); i++) {
