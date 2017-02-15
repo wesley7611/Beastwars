@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardLion extends ActorCard{
 	Card lion;
-	public CardLion(Player owner, Stage stage){
-		super(owner, stage);
+	public CardLion(Player owner){
+		super(owner);
 		lion = new Card(owner);
 		setMaxHP(60);
 		currentHP=getMaxHP();

@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardPidgeon extends ActorCard{
 	Card bear;
-	public CardPidgeon(Player owner, Stage stage){
-		super(owner, stage);
+	public CardPidgeon(Player owner){
+		super(owner);
 		bear = new Card(owner);
 		setMaxHP(100);
 		currentHP=getMaxHP();

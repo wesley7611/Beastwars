@@ -135,7 +135,7 @@ public abstract class Player {
 	public void createMeter(Stage stage, float nextCounterY) {
 		for (int i = 0; i < maxAP; i++) {
 			meter.returnElement(i).setPosition(meterX, meterY+(i * nextCounterY));
-			stage.addActor(meter.returnElement(i));
+			Game.stage.addActor(meter.returnElement(i));
 
 		}
 	}

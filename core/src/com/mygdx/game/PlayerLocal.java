@@ -35,13 +35,11 @@ public class PlayerLocal extends Player {
 
 		marker = new SelectionMarker();
 
-		stage.addActor(large);
-		stage.addActor(marker);
+		Game.stage.addActor(large);
+		Game.stage.addActor(marker);
 		
 		firstAction = true;
-		
 
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardChimpanzee extends ActorCard{
 	Card bear;
-	public CardChimpanzee(Player owner, Stage stage){
-		super(owner, stage);
+	public CardChimpanzee(Player owner){
+		super(owner);
 		bear = new Card(owner);
 		setMaxHP(100);
 		currentHP=getMaxHP();

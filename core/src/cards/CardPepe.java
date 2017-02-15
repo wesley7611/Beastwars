@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardPepe extends ActorCard{
 	Card pepe;
-	public CardPepe(Player owner, Stage stage){
-		super(owner, stage);
+	public CardPepe(Player owner){
+		super(owner);
 		pepe = new Card(owner);
 		setMaxHP(80);
 		currentHP=getMaxHP();

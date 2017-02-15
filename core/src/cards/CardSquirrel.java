@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardSquirrel extends ActorCard{
 	Card bear;
-	public CardSquirrel(Player owner, Stage stage){
-		super(owner, stage);
+	public CardSquirrel(Player owner){
+		super(owner);
 		bear = new Card(owner);
 		setMaxHP(100);
 		currentHP=getMaxHP();

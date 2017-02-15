@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardShrek extends ActorCard{
 	Card pepe;
-	public CardShrek(Player owner, Stage stage){
-		super(owner, stage);
+	public CardShrek(Player owner){
+		super(owner);
 		pepe = new Card(owner);
 		setMaxHP(80);
 		currentHP=getMaxHP();

@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardKermit extends ActorCard{
 	Card pepe;
-	public CardKermit(Player owner, Stage stage){
-		super(owner, stage);
+	public CardKermit(Player owner){
+		super(owner);
 		pepe = new Card(owner);
 		setMaxHP(80);
 		currentHP=getMaxHP();

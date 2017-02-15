@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardEel extends ActorCard{
 	Card bear;
-	public CardEel(Player owner, Stage stage){
-		super(owner, stage);
+	public CardEel(Player owner){
+		super(owner);
 		bear = new Card(owner);
 		setMaxHP(100);
 		currentHP=getMaxHP();

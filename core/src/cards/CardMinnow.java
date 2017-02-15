@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardMinnow extends ActorCard{
 	Card bear;
-	public CardMinnow(Player owner, Stage stage){
-		super(owner, stage);
+	public CardMinnow(Player owner){
+		super(owner);
 		bear = new Card(owner);
 		setMaxHP(100);
 		currentHP=getMaxHP();

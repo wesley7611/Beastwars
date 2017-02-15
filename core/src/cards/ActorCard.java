@@ -2,12 +2,14 @@ package cards;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //import com.badlogic.gdx.graphics.G2d;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.mygdx.game.Game;
 import com.mygdx.game.Player;
 
 
@@ -50,9 +52,9 @@ public abstract class ActorCard extends Card{
 	int standardAttackCost;
 	int currentAttackCost;
 	
-	public ActorCard(Player owner, Stage stage){
+	public ActorCard(Player owner){
 		super(owner);
-		this.stage = stage;
+		this.stage = Game.stage;
 		maxHP=0;
 		currentHP = getMaxHP();
 		isDefeated = false;

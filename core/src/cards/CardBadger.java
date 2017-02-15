@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardBadger extends ActorCard{
 	Card bear;
-	public CardBadger(Player owner, Stage stage){
-		super(owner, stage);
+	public CardBadger(Player owner){
+		super(owner);
 		bear = new Card(owner);
 		setMaxHP(100);
 		currentHP=getMaxHP();

@@ -9,8 +9,8 @@ import com.mygdx.game.Player;
 
 public class CardGorilla extends ActorCard{
 	Card bear;
-	public CardGorilla(Player owner, Stage stage){
-		super(owner, stage);
+	public CardGorilla(Player owner){
+		super(owner);
 		bear = new Card(owner);
 		setMaxHP(100);
 		currentHP=getMaxHP();
