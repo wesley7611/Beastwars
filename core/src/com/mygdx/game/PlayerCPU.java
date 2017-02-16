@@ -47,11 +47,6 @@ public class PlayerCPU extends Player {
 	
 	TurnDisplay tDisplay;
 
-	// source.addAction(Actions.sequence(Actions.moveTo(target.getX(),
-	// target.getY()-20, (float) 0.1), Actions.moveTo(endX, endY, (float)
-	// 0.1)));
-
-	// test
 	boolean done = false;
 	boolean runOnce = true;
 
@@ -113,20 +108,13 @@ public class PlayerCPU extends Player {
 		sequence.addAction(new RunnableAction() {
 			public void run() {
 				
-				Game.inputEnabled=true;
+				//Game.inputEnabled=true;
 				sequence.reset();
 				
 			}
 		});
 	}
 
-	/*
-	 * addAction(Actions.sequence(Actions.moveTo((Game.screenWidth-sprite.getWidth
-	 * ())/2,getY(), (float) 2), Actions.delay(1f),
-	 * Actions.moveTo(Game.screenWidth+sprite.getWidth(), getY(), 2),
-	 * Actions.run(new Runnable() { public void run () { completed = true; } })
-	 * ));
-	 */
 
 	/*
 	 * Determines which card to next play into hand by CPU, and returns its
@@ -143,24 +131,22 @@ public class PlayerCPU extends Player {
 	 * @see com.mygdx.game.Player#takeTurn(com.mygdx.game.Player)
 	 */
 	public boolean takeTurn(Player enemy) {
+		//check if hand is full
+		
+		//if not full, add card
+		
+		//identify most powerful card
+		
+		//use that card as many times
+		
+		//identify second most powerful
+		
+		//repeat
+		
+		//add end turn action
 		
 		Game.stage.addAction(sequence);
 		return sequence.act(0f);
-
-		/*
-		 * if(done=true)return true; else return false;
-		 */
-		/*
-		 * while(field.getFieldSize()<4){ playFromHand(0); }
-		 * 
-		 * if (field.isFieldFull()) { Random r = new Random(); int x =
-		 * r.nextInt(4); int y = r.nextInt(enemy.field.getFieldSize()); if
-		 * (field.returnCard(x) != null && field.returnCard(x).isDefeated() ==
-		 * false && enemy.field.returnCard(y).isDefeated() == false) { //
-		 * field.returnCard(x).attack(enemy.field.returnCard(y));
-		 * attackCard(field.returnCard(x), enemy.field.returnCard(y));
-		 * replenishAP(); Game.inputEnabled=true; return true; } } return false;
-		 */
 
 	}
 

@@ -9,6 +9,8 @@
 */
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 
@@ -31,6 +33,7 @@ public abstract class Player {
 	protected float APCounterNextY;
 
 	APMeter meter;
+	
 
 	// TEST
 	protected ActorCard selectedActor;
@@ -52,6 +55,7 @@ public abstract class Player {
 		meter = new APMeter(maxAP);
 		APCounterNextY = -20;
 
+		
 	}
 
 	// /check return value...

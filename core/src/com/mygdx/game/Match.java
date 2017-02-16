@@ -106,25 +106,18 @@ public class Match {
 
 		Game.stage.draw();
 
-		if (cardDraw == true && turnCount % 2 == 0) {
+		/*if (cardDraw == true && turnCount % 2 == 0) {
 
 			// tDisplay.player1Texture();
 
 			// tDisplay.scroll();
 			cardDraw = p1.drawFromDeck();
 
-		}
+		}*/
 
 		if (turnCount % 2 == 0) {
 			turnOver = p1.takeTurn(p2);
 		}
-		// if 2
-
-		/*
-		 * TURN START - RESPONSIBILITY REASSIGNED TO CPUPlayer if (cardDraw ==
-		 * true && turnCount % 2 == 1) { //tDisplay.player2Texture(); cardDraw =
-		 * p2.drawFromDeck(); }
-		 */
 
 		if (turnCount % 2 == 1) {
 			turnOver = p2.takeTurn(p1);

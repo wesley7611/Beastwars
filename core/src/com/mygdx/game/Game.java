@@ -54,7 +54,7 @@ public class Game extends ApplicationAdapter {
 
 	@Override
 	public void create() {
-		inputEnabled = true;
+		inputEnabled = false;
 		Projection = new Matrix4().setToOrtho2D(0, 0,
 				(float) Gdx.graphics.getWidth(),
 				(float) Gdx.graphics.getHeight());
@@ -63,6 +63,8 @@ public class Game extends ApplicationAdapter {
 		stage = new Stage(viewport);
 
 		Gdx.input.setInputProcessor(stage);
+		
+		
 
 		batch = new SpriteBatch();
 

@@ -30,19 +30,18 @@ public class TurnDisplay extends Actor{
 
 	public boolean scroll(){
 		completed=false;
-		setPosition(-600,400);
-		//sprite.setTexture(texture);
+		setPosition(-600,320);
 	
 		
 		
 		addAction(Actions.sequence(Actions.run(new Runnable() {
 		    public void run () {
-		        Game.inputEnabled=false;
+		       
 		    }
 		}), Actions.moveTo((Game.screenWidth-sprite.getWidth())/2,getY(), (float) 2), Actions.delay(1f), Actions.moveTo(Game.screenWidth+sprite.getWidth(), getY(), 2), Actions.run(new Runnable() {
 		    public void run () {
 		        completed = true;
-		        Game.inputEnabled=true;
+		        
 		    }
 		}) ));
 	
@@ -50,13 +49,7 @@ public class TurnDisplay extends Actor{
 		return completed;
 		
 	}
-	/*
-	public void player1Texture(){
-		sprite.setTexture(p1);
-	}
-	public void player2Texture(){
-		sprite.setTexture(p2);
-	}*/
+
 	@Override
 	public void positionChanged() {
 		sprite.setPosition(getX(), getY());
