@@ -12,17 +12,18 @@ public class CardBear extends ActorCard{
 	public CardBear(Player owner){
 		super(owner);
 		bear = new Card(owner);
-		setMaxHP(100);
+		setMaxHP(75);
 		currentHP=getMaxHP();
 		name = "Bear";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 1;
+		standardAttackCost=7;
+		upkeep = 12;
+		attPower= 40;
 		front = new Texture(Gdx.files.internal("Level 3/Bear.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(30);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

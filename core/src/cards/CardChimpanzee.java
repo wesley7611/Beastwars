@@ -8,21 +8,24 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.Player;
 
 public class CardChimpanzee extends ActorCard{
-	Card bear;
+	Card chimp;
 	public CardChimpanzee(Player owner){
 		super(owner);
-		bear = new Card(owner);
-		setMaxHP(100);
+		chimp = new Card(owner);
+		setMaxHP(45);
 		currentHP=getMaxHP();
-		name = "Bear";
+		name = "Chimpanzee";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 1;
+		standardAttackCost=5;
+		upkeep = 8;
+		attPower= 25;
+		
 		front = new Texture(Gdx.files.internal("Level 2/Chimpanzee.jpg"));
+		
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(30);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

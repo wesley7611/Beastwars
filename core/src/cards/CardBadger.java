@@ -8,21 +8,23 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.Player;
 
 public class CardBadger extends ActorCard{
-	Card bear;
+	Card badger;
+	
 	public CardBadger(Player owner){
 		super(owner);
-		bear = new Card(owner);
-		setMaxHP(100);
+		badger = new Card(owner);
+		setMaxHP(39);
 		currentHP=getMaxHP();
-		name = "Bear";
+		name = "Badger";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 1;
+		standardAttackCost=5;
+		attPower = 20;
+		upkeep = 8;
 		front = new Texture(Gdx.files.internal("Level 2/Badger.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(30);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

@@ -8,21 +8,22 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.Player;
 
 public class CardHarambe extends ActorCard{
-	Card pepe;
+	Card harambe;
 	public CardHarambe(Player owner){
 		super(owner);
-		pepe = new Card(owner);
-		setMaxHP(80);
+		harambe = new Card(owner);
+		setMaxHP(90);
 		currentHP=getMaxHP();
-		name = "Pepe";
+		name = "Harambe";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 3;
+		standardAttackCost=8;
+		upkeep = 15;
+		attPower= 50;
 		front = new Texture(Gdx.files.internal("Level 4/Harambe.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(70);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

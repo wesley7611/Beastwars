@@ -54,6 +54,7 @@ public class Game extends ApplicationAdapter {
 
 	@Override
 	public void create() {
+		
 		inputEnabled = false;
 		Projection = new Matrix4().setToOrtho2D(0, 0,
 				(float) Gdx.graphics.getWidth(),
@@ -61,17 +62,15 @@ public class Game extends ApplicationAdapter {
 
 		ScreenViewport viewport = new ScreenViewport();
 		stage = new Stage(viewport);
-
+		
+		p1 = new PlayerLocal("Player 1");
+		p2 = new PlayerCPU("Player 2");
+		
 		Gdx.input.setInputProcessor(stage);
-		
-		
-
 		batch = new SpriteBatch();
 
 		createPlayerDeck();
-
-		// match = new Match(batch, stage);
-		match = new Match(pDeck, oDeck);
+		match = new Match(p1, p2, pDeck, oDeck);
 
 		board = new Texture(Gdx.files.internal("board.png"));
 	}
@@ -82,13 +81,9 @@ public class Game extends ApplicationAdapter {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 
 		batch.setProjectionMatrix(Projection);
-
 		batch.begin();
-
 		batch.draw(board, 0, 0);
-
 		match.act();
-
 		stage.act();
 		batch.end();
 	}
@@ -108,7 +103,7 @@ public class Game extends ApplicationAdapter {
 				card = new CardBear(p1);
 				// p1.deck.addCard(card);
 			} else if (x == 1) {
-				card = new CardLion(p1);
+				card = new CardBear(p1);
 				// p1.deck.addCard(card);
 			} else if (x == 2) {
 				card = new CardFrog(p1);
@@ -156,16 +151,18 @@ public class Game extends ApplicationAdapter {
 			}
 			pDeck.addCard(card);
 		}
+		Card card = new CardEuthanise(p1);
+		pDeck.addCard(card);
 		
 		for (int i = 0; i < 30; i++) {
-			Card card;
+			//Card card;
 			Random r = new Random();
 			int x = r.nextInt(17);
 			if (x == 0) {
 				card = new CardBear(p2);
 				// p1.deck.addCard(card);
 			} else if (x == 1) {
-				card = new CardLion(p2);
+				card = new CardBear(p2);
 				// p1.deck.addCard(card);
 			} else if (x == 2) {
 				card = new CardFrog(p2);

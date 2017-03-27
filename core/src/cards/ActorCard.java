@@ -1,3 +1,11 @@
+/**
+ *Actor card parent for all animal cards
+ * 
+ *
+ * @author  Philip Wesley and William Scarbro
+ * @version 1.0
+ * @since   2017-1-23 
+ */
 package cards;
 
 import java.util.ArrayList;
@@ -19,8 +27,8 @@ public abstract class ActorCard extends Card{
 	protected int currentHP;
 	private int maxHP;
 	protected String name;
-	protected Label text;
-	protected List<HPCounter> healthDisplay;
+	protected HPCounter hpCount;
+	protected int attPower;
 	
 	BitmapFont font;
 	
@@ -60,28 +68,13 @@ public abstract class ActorCard extends Card{
 		isDefeated = false;
 		type=1;
 		standardAttackCost = 0;
-		currentAttackCost = 0;
-		text = new Label("TEST", new LabelStyle(new BitmapFont(), Color.BLACK));
-		//healthDisplay=new ArrayList<HPCounter>(maxHP);
-		//text.setPosition(0, 0);
-		
-		
+		currentAttackCost = 0;		
 		afflictedCount = 0;
 		stunnedCount = 0;
 		crippledCount =0;
 		confusedCount = 0;
 		STRUpCount = 0;
 		DEFUpCount = 0;
-		
-		
-		/*
-		for(int i=0; i < 10; i++){
-			HPCounter counter = new HPCounter();
-			healthDisplay.add(counter);
-			counter.setPosition(getX(), getY());
-			addActor(counter);
-			stage.addActor(counter);
-		}*/
 		
 		
 		
@@ -122,6 +115,15 @@ public abstract class ActorCard extends Card{
 	public boolean isDefeated(){
 		return isDefeated;
 	}
+	public void setSTRUp(int turns){		
+		isSTRUp = true;
+		STRUpCount = turns;
+	}
+	public void setDEFUp(int turns){
+		
+		isDEFUp = true;
+		DEFUpCount = turns;
+	}
 	public int returnHP() {
 		return currentHP;
 	}
@@ -140,7 +142,12 @@ public abstract class ActorCard extends Card{
 	public void statusCheck(){
 		if(isAfflicted==true){
 			//poison actions
-			
+			currentHP = currentHP - 10;
+			if(currentHP<=0){
+				currentHP=0;
+				isDefeated=true;
+				flipBack();
+			}
 			reduceTimer(afflictedCount, isAfflicted);
 		}
 		if(isStunned==true){
@@ -149,6 +156,7 @@ public abstract class ActorCard extends Card{
 		}
 		if(isCrippled==true){
 			reduceTimer(crippledCount, isCrippled);
+			if(!isCrippled)currentAttackCost=standardAttackCost;
 		}
 		if(isConfused==true){
 			reduceTimer(confusedCount, isConfused);
@@ -161,8 +169,19 @@ public abstract class ActorCard extends Card{
 		}
 		
 	}
+	private void cripple(int turns){
+		isCrippled = true;
+		crippledCount = turns;
+		currentAttackCost = standardAttackCost*2;
+	}
 	private void reduceTimer(int timer, boolean status){
 		timer --;
 		if(timer<=0)status=false;
+	}
+	public boolean canAct(){
+		if(isDefeated == false && isStunned == false && isConfused == false){
+			return false;
+		}
+		return true;
 	}
 }

@@ -8,21 +8,22 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.Player;
 
 public class CardShrek extends ActorCard{
-	Card pepe;
+	Card shrek;
 	public CardShrek(Player owner){
 		super(owner);
-		pepe = new Card(owner);
-		setMaxHP(80);
+		shrek = new Card(owner);
+		setMaxHP(90);
 		currentHP=getMaxHP();
-		name = "Pepe";
+		name = "Shrek";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 3;
+		standardAttackCost=9;
+		upkeep = 15;
+		attPower= 55;
 		front = new Texture(Gdx.files.internal("Level 4/Shrek.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(70);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

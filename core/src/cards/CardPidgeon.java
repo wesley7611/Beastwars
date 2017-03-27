@@ -8,21 +8,22 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.Player;
 
 public class CardPidgeon extends ActorCard{
-	Card bear;
+	Card pigeon;
 	public CardPidgeon(Player owner){
 		super(owner);
-		bear = new Card(owner);
-		setMaxHP(100);
+		pigeon = new Card(owner);
+		setMaxHP(12);
 		currentHP=getMaxHP();
-		name = "Bear";
+		name = "Pigeon";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 1;
+		standardAttackCost=1;
+		upkeep = 5;
+		attPower= 10;
 		front = new Texture(Gdx.files.internal("Level 1/Pidgeon.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(30);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

@@ -12,17 +12,18 @@ public class CardPepe extends ActorCard{
 	public CardPepe(Player owner){
 		super(owner);
 		pepe = new Card(owner);
-		setMaxHP(80);
+		setMaxHP(95);
 		currentHP=getMaxHP();
 		name = "Pepe";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 3;
+		standardAttackCost=10;
+		upkeep = 15;
+		attPower= 60;
 		front = new Texture(Gdx.files.internal("Level 4/Pepe.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(70);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

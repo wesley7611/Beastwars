@@ -110,6 +110,7 @@ public class PlayerCPU extends Player {
 				
 				//Game.inputEnabled=true;
 				sequence.reset();
+				replenishAP();
 				
 			}
 		});

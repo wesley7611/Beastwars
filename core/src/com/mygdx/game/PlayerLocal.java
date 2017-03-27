@@ -29,7 +29,7 @@ public class PlayerLocal extends Player {
 	
 	boolean firstAction;
 
-	public PlayerLocal(String name, Stage stage) {
+	public PlayerLocal(String name) {
 		super(name);
 		APCounterNextY = 20;
 		fy = 180;
@@ -82,6 +82,13 @@ public class PlayerLocal extends Player {
 			sequence.addAction(new RunnableAction() {
 				public void run() {
 					
+					statusCheck();
+					
+				}
+			});
+			sequence.addAction(new RunnableAction() {
+				public void run() {
+					
 					Game.inputEnabled=true;
 					
 				}
@@ -114,13 +121,9 @@ public class PlayerLocal extends Player {
 						if (selectedItem == hand.returnCard(i)) {
 							this.selectedItem = null;
 							clearSelection();
-							// hand.returnCard(i).addAction(Actions.moveTo(hand.returnCard(i).getX(),
-							// hand.returnCard(i).getY()-10, (float) 0.1));
-							// hand.returnCard(i);
 						} else {
 							if (selectedItem != null) {
-								// selectedItem.addAction(Actions.moveTo(selectedItem.getX(),
-								// selectedItem.getY()-10, (float) 0.1));
+
 								// SET MARKER TO NEW ITEM
 								marker.selectCard(hand.returnCard(i));
 								selectedItemInt = i;
@@ -129,8 +132,6 @@ public class PlayerLocal extends Player {
 							// HERE
 							clearSelection();
 							this.selectedItem = (ItemCard) hand.returnCard(i);
-							// hand.returnCard(i).addAction(Actions.moveTo(hand.returnCard(i).getX(),
-							// hand.returnCard(i).getY()+10, (float) 0.1));
 							marker.selectCard(hand.returnCard(i));
 							selectedItemInt = i;
 						}
@@ -145,23 +146,22 @@ public class PlayerLocal extends Player {
 				if (field.returnCard(i).isPressed()) {
 					if (selectedItem != null) {
 						selectedItem.ItemUse(this, i);
+						
+						/*
+						 * Sends used item card off screen, removes it and realligns hand
+						 */
 						selectedItem.addAction(Actions.moveTo(1400, 800, 1));
-
 						hand.removeCard(selectedItemInt);
 						hand.reallignHand();
+						
 						clearSelection();
 					} else if (selectedActor == field.returnCard(i)) {
-						// selectedActor.flipBack();
-						// large.setVisible(true);
-						// selectedActor.addAction(Actions.moveTo(selectedActor.getX(),
-						// selectedActor.getY()-10, (float) 0.1));
 						clearSelection();
 
 					} else {
+						if(field.returnCard(i).canAct()){
 						this.selectedActor = field.returnCard(i);
-						// field.returnCard(i).addAction(Actions.moveTo(field.returnCard(i).getX(),
-						// field.returnCard(i).getY()+10, (float) 0.1));
-						marker.selectCard(field.returnCard(i));
+						marker.selectCard(field.returnCard(i));}
 					}
 				}
 

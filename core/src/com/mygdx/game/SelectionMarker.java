@@ -1,3 +1,11 @@
+/**
+ *Marker to highlight selected card
+ * 
+ *
+ * @author  William Scarbro
+ * @version 1.0
+ * @since   2017-1-23 
+ */
 package com.mygdx.game;
 
 import cards.Card;

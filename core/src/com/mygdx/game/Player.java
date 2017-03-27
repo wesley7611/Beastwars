@@ -46,8 +46,8 @@ public abstract class Player {
 		this.name = name;
 		isDefeated = false;
 		AP = 0;
-		APperTurn = 20;
-		maxAP = 40;
+		APperTurn = 10;
+		maxAP = 20;
 		// create the players card piles
 		deck = new Deck();
 		hand = new Hand();
@@ -58,6 +58,9 @@ public abstract class Player {
 		
 	}
 
+	public Field returnField(){
+		return field;
+	}
 	// /check return value...
 	public boolean drawFromDeck() { // draw card from deck, if deck isnt empty
 		Card draw = deck.drawCard();
@@ -129,6 +132,8 @@ public abstract class Player {
 		refreshAP();
 	}
 	public void refreshAP(){
+		if(AP<0)AP=0;
+		System.out.println(AP);
 		meter.setNumber(AP);
 	}
 
@@ -161,5 +166,10 @@ public abstract class Player {
 		//clearSelection();
 		hand.removeCard(itemInt);
 		hand.reallignHand();
+	}
+	protected void statusCheck(){
+		for(int i = 0; i<field.getFieldSize(); i++){
+			field.returnCard(i).statusCheck();
+		}
 	}
 }

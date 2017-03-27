@@ -16,7 +16,7 @@ public class CardAttUp extends ItemCard {
 	@Override
 	public cards.ItemCard ItemUse(Player targetPlayer, int target) {
 		if(owner.equals(targetPlayer)){
-		targetPlayer.discardFieldCard(target);
+		targetPlayer.returnField().returnCard(target).setSTRUp(3);
 		return this;
 		}
 		return null;

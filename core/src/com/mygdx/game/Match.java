@@ -3,6 +3,7 @@
  * 
  *
  * @author  Philip Wesley
+ * @Modified by William Scarbro
  * @version 1.0
  * @since   2016-11-25 
  */
@@ -13,8 +14,8 @@ import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 
 import cards.*;
 
@@ -22,7 +23,7 @@ public class Match {
 
 	Player p1;
 	Player p2;
-	APMeter p1m;
+	// APMeter p1m;
 
 	boolean cardDraw;
 	boolean turnOver;
@@ -45,17 +46,11 @@ public class Match {
 	Texture board;
 
 	// public Match(SpriteBatch batch, Stage stage) {
-	public Match(Deck pDeck, Deck oDeck) {
-
-		// tDisplay = new TurnDisplay();
-
-		p1 = new PlayerLocal("Player 1", Game.stage);
-		p2 = new PlayerCPU("CPU");
-		// this.stage = stage;
-		// this.batch = batch;
+	public Match(Player p1, Player p2, Deck pDeck, Deck oDeck) {
+		this.p1 = p1;
+		this.p2 = p2;
 
 		font = new BitmapFont();
-		// HP = new SpriteBatch();
 
 		cardDraw = true;
 		turnCount = 0;
@@ -64,18 +59,25 @@ public class Match {
 		board = new Texture(Gdx.files.internal("board.png"));
 
 		p1.deck = pDeck;
-		
+
 		for (Card card : pDeck.deck) {
+			Group group = new Group();
 			card.setX(1280 - 185);
 			card.setY(20);
 			card.setPosition(card.getX(), card.getY());
 			card.positionChanged();
+			//HPCounter hpCount;
 			
 			Game.stage.addActor(card);
+			/*
+			if (card.isActor()) {
+				hpCount = new HPCounter(10);
+				card.addActor(hpCount);
+			}*/
 		}
-		
+
 		p2.deck = oDeck;
-		
+
 		for (Card card : oDeck.deck) {
 
 			card.setOrigin(card.getWidth() / 2, card.getHeight() / 2);
@@ -86,7 +88,6 @@ public class Match {
 			card.positionChanged();
 			Game.stage.addActor(card);
 		}
-		
 
 		// /////
 		// match = new Match(p1, p2);
@@ -106,15 +107,6 @@ public class Match {
 
 		Game.stage.draw();
 
-		/*if (cardDraw == true && turnCount % 2 == 0) {
-
-			// tDisplay.player1Texture();
-
-			// tDisplay.scroll();
-			cardDraw = p1.drawFromDeck();
-
-		}*/
-
 		if (turnCount % 2 == 0) {
 			turnOver = p1.takeTurn(p2);
 		}
@@ -131,23 +123,15 @@ public class Match {
 		}
 
 		if (p1.hasWon(p2)) {
-			// font.draw(batch, "Player 1 Wins", 0, 350);
+
 		}
 
 		if (p2.hasWon(p1)) {
-			// font.draw(batch, "Player 2 Wins", 0, 350);
 		}
 
-		// font.draw(batch, p1.selectedItem + " " + p1.selectedActor, 0, 300);
-		// font.draw(batch, p1.AP + "", 0, 450);
 
 	}
 
-	/*
-	 * public void disableInput() { for (int i = 0; i < p1.field.getFieldSize();
-	 * i++) { // p1.field.returnCard(i).; } // for enemy field // for p field //
-	 * for p hand }
-	 */
 	public void addToDeck(Deck deck, Card card) {
 		deck.addCard(card);
 

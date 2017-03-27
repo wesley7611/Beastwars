@@ -16,7 +16,7 @@ public class CardHeal extends ItemCard {
 	@Override
 	public cards.ItemCard ItemUse(Player targetPlayer, int target) {
 		if(owner.equals(targetPlayer)){
-		targetPlayer.discardFieldCard(target);
+			targetPlayer.returnField().returnCard(target).increaseHP(targetPlayer.returnField().returnCard(target).getMaxHP()-targetPlayer.returnField().returnCard(target).getCurrentHP());
 		return this;
 		}
 		return null;

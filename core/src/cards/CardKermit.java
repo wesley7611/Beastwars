@@ -8,21 +8,22 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.Player;
 
 public class CardKermit extends ActorCard{
-	Card pepe;
+	Card kermit;
 	public CardKermit(Player owner){
 		super(owner);
-		pepe = new Card(owner);
-		setMaxHP(80);
+		kermit = new Card(owner);
+		setMaxHP(85);
 		currentHP=getMaxHP();
-		name = "Pepe";
+		name = "Kermit";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 3;
+		standardAttackCost=7;
+		upkeep = 15;
+		attPower= 45;
 		front = new Texture(Gdx.files.internal("Level 4/Kermit.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(70);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 

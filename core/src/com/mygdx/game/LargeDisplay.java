@@ -1,3 +1,11 @@
+/**
+ *Large Display of cards when player zooms
+ * 
+ *
+ * @author  William Scarbro
+ * @version 1.0
+ * @since   2017-1-23 
+ */
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;

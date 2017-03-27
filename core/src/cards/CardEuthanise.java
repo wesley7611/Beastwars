@@ -15,11 +15,12 @@ public class CardEuthanise extends ItemCard {
 
 	@Override
 	public cards.ItemCard ItemUse(Player targetPlayer, int target) {
-		
+		System.out.println(targetPlayer + " " + owner);
 		if(owner.equals(targetPlayer)){
 		/*
 		 * TODO: Add animation for euthanise
 		 */	
+			
 		targetPlayer.discardFieldCard(target);
 		return this;
 		}

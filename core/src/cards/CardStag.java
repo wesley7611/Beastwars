@@ -8,21 +8,22 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.Player;
 
 public class CardStag extends ActorCard{
-	Card bear;
+	Card stag;
 	public CardStag(Player owner){
 		super(owner);
-		bear = new Card(owner);
-		setMaxHP(100);
+		stag = new Card(owner);
+		setMaxHP(49);
 		currentHP=getMaxHP();
-		name = "Bear";
+		name = "Stag";
 		type = 1;
-		standardAttackCost=2;
-		upkeep = 1;
+		standardAttackCost=4;
+		upkeep = 8;
+		attPower= 19;
 		front = new Texture(Gdx.files.internal("Level 2/Stag.jpg"));
 		//sprite = new Sprite(back);
 	}
 	public int attack(ActorCard target){
-		target.decreaseHP(30);
+		target.decreaseHP(attPower);
 		return currentAttackCost;
 	}
 
